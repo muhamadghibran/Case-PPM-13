@@ -25,7 +25,7 @@ export default function RegisterScreen({ navigation }) {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       Alert.alert("Success", "Account created successfully");
-      // Navigation handled by auth state
+      Alert.alert("Success", "Account created successfully");
     } catch (error) {
       Alert.alert("Registration Failed", error.message);
     } finally {

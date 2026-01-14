@@ -70,7 +70,7 @@ export default function HomeScreen() {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      // Navigation is handled automatically by App.js
+      await signOut(auth);
     } catch (error) {
       console.error(error);
     }

@@ -23,8 +23,7 @@ export default function AddTodoScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
 
   const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
+    const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
@@ -64,12 +63,7 @@ export default function AddTodoScreen({ navigation }) {
     try {
       let imageUrl = null;
       if (imageUri) {
-        // Fallback: Save local URI directly to Firestore since Storage is not active
-        // Ideally we uploads to Storage, but for this demo with unexpected server error:
         imageUrl = imageUri;
-
-        // OLD LOGIC (Skipped due to server error):
-        // imageUrl = await uploadImage(imageUri);
       }
 
       await addDoc(collection(db, "todos"), {

@@ -24,7 +24,7 @@ export default function LoginScreen({ navigation }) {
     setLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // Navigation is handled by auth state listener
+      await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
       Alert.alert("Login Failed", error.message);
     } finally {
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 50,
-    backgroundColor: "#4E46E5", // Indigo 600
+    backgroundColor: "#4E46E5",
     borderRadius: 12,
     justifyContent: "center",
     alignItems: "center",
